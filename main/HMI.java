@@ -18,46 +18,41 @@ public class HMI {
 
         School school = HMI.createSchool();
         System.out.println("Welcome to " + school.getName() + " in " + school.getAddress());
-        int action;
-        String options;
+        String action;
 
         do {
-            System.out.println("How can i help you today? Type yes to show all services");
-            options = SCANNER_INPUT.next();
-            if (options.equalsIgnoreCase("yes")) {
-                System.out.println("0. EXIT PROGRAM \n1. Add a Student \n2. Add Teacher \n3. Display All Students \n4. Display All Teachers \n5. Delete Student \n6. Delete Teacher \n7. Search Student by name \n8. Search Teacher by name");
-            }
-
-            action = SCANNER_INPUT.nextInt();
+            System.out.println("How can i help you today?");
+            action = SCANNER_INPUT.next();
 
             switch (action) {
-                case 1:
+                case "addStudent":
                     addStudent();
                     break;
-                case 2:
+                case "addTeacher":
                     addTeacher();
                     break;
-                case 3:
-                    displayAllStudents();
-                    break;
-                case 4:
+                case "displayAllTeachers":
                     displayAllTeachers();
                     break;
-                case 5:
-                    deletePerson(Options.STUDENT);
+                case "displayAllStudents":
+                    displayAllStudents();
                     break;
-                case 6:
-                    deletePerson(Options.TEACHER);
-                    break;
-                case 7:
+
+                case "searchStudentByName":
                     printPersonDataByName(Options.STUDENT);
                     break;
-                case 8:
+                case "searchTeacherByName":
                     printPersonDataByName(Options.TEACHER);
+                    break;
+                case "deleteStudent":
+                    deletePerson(Options.STUDENT);
+                    break;
+                case "deleteTeacher":
+                    deletePerson(Options.TEACHER);
                     break;
             }
 
-        } while (action != 0);
+        } while (!action.equalsIgnoreCase("exit"));
     }
 
     // create a school object
