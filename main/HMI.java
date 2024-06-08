@@ -129,7 +129,7 @@ public class HMI {
             System.out.println("Student not found, please try again!");
         }
         else {
-            System.out.print(person.getInfo());
+            System.out.println(person.getInfo());
         }
     }
 
